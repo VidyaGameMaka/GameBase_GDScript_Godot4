@@ -1,0 +1,31 @@
+[gd_scene load_steps=4 format=3 uid="uid://dsq5noq2k8yjc"]
+
+[ext_resource type="Script" path="res://GameBase/Prefabs/ExitToScene/ExitToScene.gd" id="1_iv058"]
+[ext_resource type="Texture2D" uid="uid://biq6c2siyxpsl" path="res://GameBase/SceneAssets/Sprites/Shared/bluesquare_16px.png" id="2_0l0jm"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_vbrnq"]
+size = Vector2(64, 64)
+
+[node name="ExitToScenePFB" type="Area2D"]
+script = ExtResource("1_iv058")
+my_scene_path = "level_two"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(32, 32)
+shape = SubResource("RectangleShape2D_vbrnq")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(32, 32)
+scale = Vector2(4, 4)
+texture = ExtResource("2_0l0jm")
+
+[node name="Label" type="Label" parent="."]
+offset_right = 64.0
+offset_bottom = 64.0
+text = "level_two
+0"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
+[connection signal="body_exited" from="." to="." method="_on_body_exited"]

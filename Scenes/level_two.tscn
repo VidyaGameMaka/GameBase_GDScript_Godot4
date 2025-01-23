@@ -1,0 +1,38 @@
+[gd_scene load_steps=4 format=3 uid="uid://xl13cc1da5au"]
+
+[ext_resource type="PackedScene" uid="uid://dqyk4uexo83ie" path="res://GameBase/Prefabs/BasicPlayer/BasicPlayerPFB.tscn" id="1_hljda"]
+[ext_resource type="PackedScene" uid="uid://c073261cpqggn" path="res://GameBase/Prefabs/Checkpoint/CheckPointPFB.tscn" id="2_ae2a0"]
+[ext_resource type="PackedScene" uid="uid://dsq5noq2k8yjc" path="res://GameBase/Prefabs/ExitToScene/ExitToScenePFB.tscn" id="3_4wgvw"]
+
+[node name="LevelTwo" type="Node2D"]
+
+[node name="LevelLabel" type="Label" parent="."]
+offset_right = 128.0
+offset_bottom = 64.0
+text = "Level 2"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="HotSpots" type="Node2D" parent="."]
+
+[node name="Checkpoint 0" parent="HotSpots" instance=ExtResource("2_ae2a0")]
+position = Vector2(512, 256)
+
+[node name="Checkpoint 1" parent="HotSpots" instance=ExtResource("2_ae2a0")]
+position = Vector2(448, 64)
+my_checkpoint = 1
+
+[node name="Checkpoint 2" parent="HotSpots" instance=ExtResource("2_ae2a0")]
+position = Vector2(64, 64)
+my_checkpoint = 2
+
+[node name="ExitToScenePFB" parent="HotSpots" instance=ExtResource("3_4wgvw")]
+position = Vector2(64, 192)
+my_checkpoint = 2
+my_scene_path = "level_one"
+
+[node name="ExitToScenePFB2" parent="HotSpots" instance=ExtResource("3_4wgvw")]
+position = Vector2(256, 256)
+my_scene_path = "main"
+
+[node name="BasicPlayer" parent="." instance=ExtResource("1_hljda")]

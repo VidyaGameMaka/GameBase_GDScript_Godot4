@@ -1,0 +1,193 @@
+[gd_scene load_steps=2 format=3 uid="uid://wu2w05jug8in"]
+
+[ext_resource type="Script" path="res://GameBase/SceneAssets/Scripts/main/MainSlotPanel.gd" id="1_7wyqt"]
+
+[node name="MainMenu_CanvasLayer" type="CanvasLayer"]
+
+[node name="Control" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="TitleLabel" type="Label" parent="Control"]
+layout_mode = 1
+anchors_preset = 10
+anchor_right = 1.0
+offset_bottom = 23.0
+grow_horizontal = 2
+theme_override_font_sizes/font_size = 50
+text = "Main Menu"
+horizontal_alignment = 1
+
+[node name="Slot_Panel1" type="Panel" parent="Control" node_paths=PackedStringArray("myLabel", "myStartBtn", "myDeleteBtn")]
+layout_mode = 1
+anchors_preset = 10
+anchor_right = 1.0
+offset_top = 84.0
+offset_bottom = 169.0
+grow_horizontal = 2
+script = ExtResource("1_7wyqt")
+myLabel = NodePath("SlotLabel1")
+myStartBtn = NodePath("StartGameButton1")
+myDeleteBtn = NodePath("DeleteGameButton1")
+
+[node name="SlotLabel1" type="Label" parent="Control/Slot_Panel1"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_right = -406.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_font_sizes/font_size = 13
+text = "slot: 1?
+playedfile: true?
+savedScene: level_one?
+checkpoint: 99?"
+
+[node name="StartGameButton1" type="Button" parent="Control/Slot_Panel1"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -23.0
+offset_top = -37.5
+offset_right = 23.0
+offset_bottom = -6.5
+grow_horizontal = 2
+grow_vertical = 2
+text = "Start"
+
+[node name="DeleteGameButton1" type="Button" parent="Control/Slot_Panel1"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -29.5
+offset_top = 3.5
+offset_right = 29.5
+offset_bottom = 34.5
+grow_horizontal = 2
+grow_vertical = 2
+text = "Delete"
+
+[node name="Slot_Panel2" type="Panel" parent="Control" node_paths=PackedStringArray("myLabel", "myStartBtn", "myDeleteBtn")]
+layout_mode = 1
+anchors_preset = 10
+anchor_right = 1.0
+offset_top = 174.0
+offset_bottom = 259.0
+grow_horizontal = 2
+script = ExtResource("1_7wyqt")
+slotNum = 2
+myLabel = NodePath("SlotLabel2")
+myStartBtn = NodePath("StartGameButton2")
+myDeleteBtn = NodePath("DeleteGameButton2")
+
+[node name="SlotLabel2" type="Label" parent="Control/Slot_Panel2"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_right = -406.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_font_sizes/font_size = 13
+text = "slot: 2?
+playedfile: true?
+savedScene: level_one?
+checkpoint: 99?"
+
+[node name="StartGameButton2" type="Button" parent="Control/Slot_Panel2"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -23.0
+offset_top = -37.5
+offset_right = 23.0
+offset_bottom = -6.5
+grow_horizontal = 2
+grow_vertical = 2
+text = "Start"
+
+[node name="DeleteGameButton2" type="Button" parent="Control/Slot_Panel2"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -29.5
+offset_top = 3.5
+offset_right = 29.5
+offset_bottom = 34.5
+grow_horizontal = 2
+grow_vertical = 2
+text = "Delete"
+
+[node name="Slot_Panel3" type="Panel" parent="Control" node_paths=PackedStringArray("myLabel", "myStartBtn", "myDeleteBtn")]
+layout_mode = 1
+anchors_preset = 10
+anchor_right = 1.0
+offset_top = 264.0
+offset_bottom = 349.0
+grow_horizontal = 2
+script = ExtResource("1_7wyqt")
+slotNum = 3
+myLabel = NodePath("SlotLabel3")
+myStartBtn = NodePath("StartGameButton3")
+myDeleteBtn = NodePath("DeleteGameButton3")
+
+[node name="SlotLabel3" type="Label" parent="Control/Slot_Panel3"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_right = -406.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_font_sizes/font_size = 13
+text = "slot: 3?
+playedfile: true
+savedScene: level_one
+checkpoint: 99"
+
+[node name="StartGameButton3" type="Button" parent="Control/Slot_Panel3"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -23.0
+offset_top = -37.5
+offset_right = 23.0
+offset_bottom = -6.5
+grow_horizontal = 2
+grow_vertical = 2
+text = "Start"
+
+[node name="DeleteGameButton3" type="Button" parent="Control/Slot_Panel3"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -29.5
+offset_top = 3.5
+offset_right = 29.5
+offset_bottom = 34.5
+grow_horizontal = 2
+grow_vertical = 2
+text = "Delete"

@@ -1,0 +1,19 @@
+[gd_scene load_steps=4 format=3 uid="uid://dqyk4uexo83ie"]
+
+[ext_resource type="Script" path="res://GameBase/Prefabs/BasicPlayer/BasicPlayer.gd" id="1_lr70q"]
+[ext_resource type="Texture2D" uid="uid://bloxwsemqbuas" path="res://icon.svg" id="2_ptx0i"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_j10cr"]
+radius = 32.0
+
+[node name="BasicPlayer" type="CharacterBody2D" groups=["player"]]
+motion_mode = 1
+script = ExtResource("1_lr70q")
+
+[node name="Icon" type="Sprite2D" parent="."]
+position = Vector2(9.53674e-07, 9.53674e-07)
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("2_ptx0i")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_j10cr")
