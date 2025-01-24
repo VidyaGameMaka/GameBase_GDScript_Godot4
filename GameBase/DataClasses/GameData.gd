@@ -12,12 +12,12 @@ class_name GameData
 #Windowed Resolution Presets, Only Come into Effect when ScreenMode is Windowed.
 #Godot does not change the resolution of the monitor when it goes FullScreen, it uses the resolution as-is.
 @export var windowResolutions = {
-		1: Vector2i(480, 270),
-		2: Vector2i(960, 540 ),
-		3: Vector2i(1280, 720 ),
-		4: Vector2i(1920, 1080),
-		5: Vector2i(2560, 1440),
-		6: Vector2i(3840, 2160),
+		0: Vector2i(480, 270),
+		1: Vector2i(960, 540),
+		2: Vector2i(1280, 720),
+		3: Vector2i(1920, 1080),
+		4: Vector2i(2560, 1440),
+		5: Vector2i(3840, 2160),
 	}
 
 

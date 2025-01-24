@@ -50,6 +50,9 @@ func _ready() -> void:
 	
 	#Load achievementData from file
 	achievementData = _LoadAchievementData().duplicate(true)
+	
+	#Apply Video Settings
+	ApplyVideoSettings()
 
 
 
@@ -86,7 +89,7 @@ func LoadPlayerSlot(slotNum: int) -> void:
 
 #Delete a playerData slot. This should only be used on the main menu
 #where the primary game is not running.
-func ErasePlayerDataSlot(slotNum: int):
+func ErasePlayerDataSlot(slotNum: int) -> void:
 	#Reset Value in Dictionary
 	_playerDict[slotNum] = PlayerData.new().duplicate(true)
 	#Reset Runtime
@@ -99,6 +102,20 @@ func ErasePlayerDataSlot(slotNum: int):
 func ReloadPlayerDataMainMenu():
 	playerData = PlayerData.new().duplicate(true)
 	_SetupPlayerDataSlots()
+
+#Apply video settings
+func ApplyVideoSettings() -> void:
+	if gameData.isFullScreen == true:
+		DisplayServer.window_set_mode(DisplayServer.WINDOW_MODE_FULLSCREEN)
+	else:
+		DisplayServer.window_set_mode(DisplayServer.WINDOW_MODE_WINDOWED)
+		DisplayServer.window_set_size(gameData.windowResolutions[gameData.resolutionIndex])
+		var screen_size = DisplayServer.screen_get_size()
+		var window_size = DisplayServer.window_get_size() 
+		var centered = Vector2(screen_size.x / 2 - window_size.x / 2, screen_size.y / 2 - window_size.y / 2)
+		DisplayServer.window_set_position(centered)
+		
+		
 
 ## PlayerData functions
 

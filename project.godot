@@ -29,9 +29,7 @@ Sound="*res://GameBase/AutoLoad/Sound.tscn"
 window/size/viewport_width=640
 window/size/viewport_height=360
 window/size/always_on_top=true
-window/size/window_width_override=1920
-window/size/window_height_override=1080
-window/stretch/mode="viewport"
+window/stretch/mode="canvas_items"
 
 [dotnet]
 

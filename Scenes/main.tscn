@@ -1,13 +1,15 @@
-[gd_scene load_steps=4 format=3 uid="uid://wu2w05jug8in"]
+[gd_scene load_steps=5 format=3 uid="uid://wu2w05jug8in"]
 
 [ext_resource type="Script" path="res://GameBase/SceneAssets/Scripts/main/MainMenu.gd" id="1_0lsll"]
 [ext_resource type="Script" path="res://GameBase/SceneAssets/Scripts/main/MainSlotPanel.gd" id="1_7wyqt"]
 [ext_resource type="Script" path="res://GameBase/SceneAssets/Scripts/main/SoundSlider.gd" id="2_npqft"]
+[ext_resource type="Script" path="res://GameBase/SceneAssets/Scripts/main/VideoMenu.gd" id="4_v85tt"]
 
 [node name="MainMenu_CanvasLayer" type="CanvasLayer"]
 script = ExtResource("1_0lsll")
 
 [node name="MainMenu_Control" type="Control" parent="."]
+visible = false
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -25,49 +27,35 @@ theme_override_font_sizes/font_size = 50
 text = "Main Menu"
 horizontal_alignment = 1
 
-[node name="StartGameButton" type="Button" parent="MainMenu_Control"]
+[node name="HFlowContainer" type="HFlowContainer" parent="MainMenu_Control"]
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -23.0
-offset_top = -79.5
-offset_right = 23.0
-offset_bottom = -48.5
+offset_left = -42.5
+offset_top = -68.0
+offset_right = 42.5
+offset_bottom = 68.0
 grow_horizontal = 2
 grow_vertical = 2
+alignment = 1
+
+[node name="StartGameButton" type="Button" parent="MainMenu_Control/HFlowContainer"]
+layout_mode = 2
 text = "Start"
 
-[node name="SoundButton" type="Button" parent="MainMenu_Control"]
-layout_mode = 1
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -28.5
-offset_top = -15.5
-offset_right = 28.5
-offset_bottom = 15.5
-grow_horizontal = 2
-grow_vertical = 2
+[node name="SoundButton" type="Button" parent="MainMenu_Control/HFlowContainer"]
+layout_mode = 2
 text = "Sound"
 
-[node name="QuitButton" type="Button" parent="MainMenu_Control"]
-layout_mode = 1
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -21.0
-offset_top = 48.5
-offset_right = 21.0
-offset_bottom = 79.5
-grow_horizontal = 2
-grow_vertical = 2
+[node name="VideoButton" type="Button" parent="MainMenu_Control/HFlowContainer"]
+layout_mode = 2
+text = "Video"
+
+[node name="QuitButton" type="Button" parent="MainMenu_Control/HFlowContainer"]
+layout_mode = 2
 text = "Quit"
 
 [node name="StartGame_Control" type="Control" parent="."]
@@ -397,9 +385,64 @@ offset_right = 45.0
 offset_bottom = 31.0
 text = "Back"
 
-[connection signal="button_up" from="MainMenu_Control/StartGameButton" to="." method="_on_start_game_button_button_up"]
-[connection signal="button_up" from="MainMenu_Control/SoundButton" to="." method="_on_sound_button_button_up"]
-[connection signal="button_up" from="MainMenu_Control/QuitButton" to="." method="_on_quit_button_button_up"]
+[node name="VideoMenu_Control" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("4_v85tt")
+
+[node name="TitleLabel" type="Label" parent="VideoMenu_Control"]
+layout_mode = 1
+anchors_preset = 10
+anchor_right = 1.0
+offset_bottom = 69.0
+grow_horizontal = 2
+theme_override_font_sizes/font_size = 50
+text = "Video Menu"
+horizontal_alignment = 1
+
+[node name="windowModeButton" type="Button" parent="VideoMenu_Control"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -44.0
+offset_top = -15.5
+offset_right = 44.0
+offset_bottom = 15.5
+grow_horizontal = 2
+grow_vertical = 2
+text = "FullScreen"
+
+[node name="BackButton" type="Button" parent="VideoMenu_Control"]
+layout_mode = 0
+offset_right = 45.0
+offset_bottom = 31.0
+text = "Back"
+
+[node name="OptionButton" type="OptionButton" parent="VideoMenu_Control"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -16.0
+offset_top = 30.0
+offset_right = 16.0
+offset_bottom = 50.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[connection signal="button_up" from="MainMenu_Control/HFlowContainer/StartGameButton" to="." method="_on_start_game_button_button_up"]
+[connection signal="button_up" from="MainMenu_Control/HFlowContainer/SoundButton" to="." method="_on_sound_button_button_up"]
+[connection signal="button_up" from="MainMenu_Control/HFlowContainer/VideoButton" to="." method="_on_video_button_button_up"]
+[connection signal="button_up" from="MainMenu_Control/HFlowContainer/QuitButton" to="." method="_on_quit_button_button_up"]
 [connection signal="button_up" from="StartGame_Control/BackButton" to="." method="_on_back_button_button_up"]
 [connection signal="value_changed" from="Sound_Control/master_HSlider" to="Sound_Control/master_HSlider" method="_on_value_changed"]
 [connection signal="value_changed" from="Sound_Control/sfx_HSlider" to="Sound_Control/sfx_HSlider" method="_on_value_changed"]
@@ -408,3 +451,6 @@ text = "Back"
 [connection signal="value_changed" from="Sound_Control/male_HSlider" to="Sound_Control/male_HSlider" method="_on_value_changed"]
 [connection signal="value_changed" from="Sound_Control/female_HSlider" to="Sound_Control/female_HSlider" method="_on_value_changed"]
 [connection signal="button_up" from="Sound_Control/BackButton" to="." method="_on_back_button_button_up"]
+[connection signal="button_up" from="VideoMenu_Control/windowModeButton" to="VideoMenu_Control" method="_on_window_mode_button_button_up"]
+[connection signal="button_up" from="VideoMenu_Control/BackButton" to="." method="_on_back_button_button_up"]
+[connection signal="item_selected" from="VideoMenu_Control/OptionButton" to="VideoMenu_Control" method="_on_option_button_item_selected"]
