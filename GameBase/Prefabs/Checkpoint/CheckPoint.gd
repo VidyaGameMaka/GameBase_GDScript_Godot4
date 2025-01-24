@@ -17,6 +17,6 @@ func _process(_delta: float) -> void:
 
 func _on_body_entered(body: Node2D) -> void:
 		if (body.is_in_group("player")):
-			print("player body entered checkpoint: " + str(my_checkpoint))		
+			print("player body entered checkpoint: " + str(my_checkpoint))
 			GameMaster.playerData.checkpoint = my_checkpoint
 			GameMaster.FullSave()

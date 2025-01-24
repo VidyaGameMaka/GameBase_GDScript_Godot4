@@ -4,7 +4,9 @@ extends HSlider
 enum audioBusses {Master, SFX, Music, Voice, Male, Female}
 @export var myBus: audioBusses = audioBusses.Master
 
-# Called when the node enters the scene tree for the first time.
+# Change the value of the slider depending on which bus is
+# selected in the inspector
+# Value for the slider ranges from 0 to 1 and is stepped 0.01
 func _ready() -> void:
 	match myBus:
 		audioBusses.Master:
@@ -22,11 +24,13 @@ func _ready() -> void:
 	_change_label(value)
 
 
+#Update the label to show the name of the bus, and its value as a percentage
 func _change_label(argvalue: float) -> void:
 	var outnum: float = argvalue * 100
 	$Label.text = audioBusses.keys()[myBus] + " " + str(outnum) + "%"
 
 
+#Signal to react to the slider being changed
 func _on_value_changed(argvalue: float) -> void:
 	match myBus:
 		audioBusses.Master:

@@ -26,6 +26,7 @@ func _hide_show_option_button() -> void:
 		$OptionButton.visible = true
 
 
+#Change text of the button depending if the game is full screen or not
 func _window_optionbutton_text() -> void:
 	if GameMaster.gameData.isFullScreen == true:
 		$windowModeButton.text = "Full Screen"
@@ -33,6 +34,7 @@ func _window_optionbutton_text() -> void:
 		$windowModeButton.text = "Window"
 
 
+#Signal for the window button being clicked
 func _on_window_mode_button_button_up() -> void:
 	#Toggle Window Mode
 	GameMaster.gameData.isFullScreen = !GameMaster.gameData.isFullScreen
@@ -41,6 +43,7 @@ func _on_window_mode_button_button_up() -> void:
 	GameMaster.ApplyVideoSettings()
 
 
+#Signal to react to the option button selection changing
 func _on_option_button_item_selected(_index: int) -> void:
 	#Get the ID from the optionbutton item not the index sent from the signal
 	var selectedIndex = $OptionButton.get_selected_id()

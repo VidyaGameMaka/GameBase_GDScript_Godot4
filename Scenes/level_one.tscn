@@ -8,7 +8,7 @@
 [node name="level_one" type="Node2D"]
 
 [node name="SceneMusicPlayer" parent="." instance=ExtResource("1_gl1uj")]
-mySong = 1
+mySong = 2
 
 [node name="LevelLabel" type="Label" parent="."]
 offset_right = 128.0

@@ -10,6 +10,7 @@
 script = ExtResource("1_0lsll")
 
 [node name="SceneMusicPlayer" parent="." instance=ExtResource("5_0uedv")]
+mySong = 1
 
 [node name="MainMenu_Control" type="Control" parent="."]
 layout_mode = 3

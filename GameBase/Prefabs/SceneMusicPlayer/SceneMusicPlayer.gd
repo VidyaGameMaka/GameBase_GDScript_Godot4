@@ -1,11 +1,13 @@
 extends Node2D
 
-enum sceneMusicLevels {main, level_one, level_two}
+enum sceneMusicLevels {none, main, level_one, level_two}
 @export var mySong: sceneMusicLevels
 
-# Called when the node enters the scene tree for the first time.
+# Play a song depending on what is selected
 func _ready() -> void:
 	match mySong:
+		sceneMusicLevels.none:
+			return
 		sceneMusicLevels.main:
 			Sound.PlayMusic("res://Audio/Music/KevenMcLeold_SneakySnitch.mp3")
 		sceneMusicLevels.level_one:

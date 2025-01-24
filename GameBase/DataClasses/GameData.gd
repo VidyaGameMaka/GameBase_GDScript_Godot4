@@ -1,11 +1,17 @@
 extends Resource
 class_name GameData
 
+#This is the data constructor for gameData. It keeps track of Video
+#and sound volume settings for your game.
+
+
 #The default resolution and also the resolution the user selected
 @export var resolutionIndex: int = 3
 
+
  #If true, run the game full screen
 @export var isFullScreen: bool = false
+
 
 #Windowed Resolution Presets, Only Come into Effect when ScreenMode is Windowed.
 #Godot does not change the resolution of the monitor when it goes FullScreen, it uses the resolution as-is.
@@ -19,7 +25,7 @@ class_name GameData
 	}
 
 
-#Audio Volumes
+#Audio Volumes - used at runtime
 @export var masterVolume: float = 1
 @export var sfxVolume: float = 1
 @export var musicVolume: float = 0.40
@@ -27,7 +33,8 @@ class_name GameData
 @export var maleVolume: float = 1
 @export var femaleVolume: float = 1
 
-#Default Audio Volumes
+
+#Default Audio Volumes - for resetting
 const default_masterMaxVolume: float = 1
 const default_musicMaxVolume: float = 0.40
 const default_soundfxMaxVolume: float = 1
@@ -35,7 +42,8 @@ const default_voiceMaxVolume: float = 1
 const default_femaleMaxVolume: float = 1
 const default_maleMaxVolume: float = 1
 
-#Translation System
+
+#Translation System - not implemented
 enum Languages {english, spanish, french}
 @export var languageChosen: bool = false
 @export var language: Languages = Languages.english
