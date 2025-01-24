@@ -1,8 +1,6 @@
 extends Resource
 class_name GameData
 
-@export var teststr: String = "test"
-
 #The default resolution and also the resolution the user selected
 @export var resolutionIndex: int = 3
 

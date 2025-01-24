@@ -25,6 +25,7 @@ var _save_file_path: String = "user://save/"
 var _playerData_save_file_name: String = "PlayerData"
 var _gameData_save_file_name: String = "GameData"
 var _achievementData_save_file_name: String = "AchievementData"
+#Suffix can be either ".tres" for human readable, or ".res" for computer readable only
 var _save_file_suffix: String = ".tres"
 
 func _ready() -> void:
@@ -65,6 +66,7 @@ func FullSave() -> void:
 	#Save Achievements
 	_SaveAchievementData()
 		
+	#Don't save playerData for scenes specified in dontSaveScenes
 	var canSave: bool = true
 	for scn in dontSaveScenes:
 		if scn == playerData.savedScene:
