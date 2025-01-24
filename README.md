@@ -21,5 +21,5 @@ GDScript version of my Save/Load/Delete system. This is a complete Godot project
 * **AutoLoad**
 The following are required to be in your game's  
 Project Settings->Globals->Autoload
-* res://GameBase/AutoLoad/GameMaster.gd
-* res://GameBase/AutoLoad/Sound.tscn
+	* res://GameBase/AutoLoad/GameMaster.gd
+	* res://GameBase/AutoLoad/Sound.tscn
