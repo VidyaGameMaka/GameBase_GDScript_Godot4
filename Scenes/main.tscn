@@ -9,6 +9,8 @@
 [node name="MainMenu_CanvasLayer" type="CanvasLayer"]
 script = ExtResource("1_0lsll")
 
+[node name="SceneMusicPlayer" parent="." instance=ExtResource("5_0uedv")]
+
 [node name="MainMenu_Control" type="Control" parent="."]
 layout_mode = 3
 anchors_preset = 15
@@ -439,8 +441,6 @@ offset_right = 16.0
 offset_bottom = 50.0
 grow_horizontal = 2
 grow_vertical = 2
-
-[node name="SceneMusicPlayer" parent="." instance=ExtResource("5_0uedv")]
 
 [connection signal="button_up" from="MainMenu_Control/HFlowContainer/StartGameButton" to="." method="_on_start_game_button_button_up"]
 [connection signal="button_up" from="MainMenu_Control/HFlowContainer/SoundButton" to="." method="_on_sound_button_button_up"]
