@@ -1,15 +1,15 @@
-[gd_scene load_steps=5 format=3 uid="uid://wu2w05jug8in"]
+[gd_scene load_steps=6 format=3 uid="uid://wu2w05jug8in"]
 
 [ext_resource type="Script" path="res://GameBase/SceneAssets/Scripts/main/MainMenu.gd" id="1_0lsll"]
 [ext_resource type="Script" path="res://GameBase/SceneAssets/Scripts/main/MainSlotPanel.gd" id="1_7wyqt"]
 [ext_resource type="Script" path="res://GameBase/SceneAssets/Scripts/main/SoundSlider.gd" id="2_npqft"]
 [ext_resource type="Script" path="res://GameBase/SceneAssets/Scripts/main/VideoMenu.gd" id="4_v85tt"]
+[ext_resource type="PackedScene" uid="uid://qaj45vxgvlkf" path="res://GameBase/Prefabs/SceneMusicPlayer/SceneMusicPlayer.tscn" id="5_0uedv"]
 
 [node name="MainMenu_CanvasLayer" type="CanvasLayer"]
 script = ExtResource("1_0lsll")
 
 [node name="MainMenu_Control" type="Control" parent="."]
-visible = false
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -386,6 +386,7 @@ offset_bottom = 31.0
 text = "Back"
 
 [node name="VideoMenu_Control" type="Control" parent="."]
+visible = false
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -438,6 +439,8 @@ offset_right = 16.0
 offset_bottom = 50.0
 grow_horizontal = 2
 grow_vertical = 2
+
+[node name="SceneMusicPlayer" parent="." instance=ExtResource("5_0uedv")]
 
 [connection signal="button_up" from="MainMenu_Control/HFlowContainer/StartGameButton" to="." method="_on_start_game_button_button_up"]
 [connection signal="button_up" from="MainMenu_Control/HFlowContainer/SoundButton" to="." method="_on_sound_button_button_up"]

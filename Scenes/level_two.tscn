@@ -1,10 +1,14 @@
-[gd_scene load_steps=4 format=3 uid="uid://xl13cc1da5au"]
+[gd_scene load_steps=5 format=3 uid="uid://xl13cc1da5au"]
 
+[ext_resource type="PackedScene" uid="uid://qaj45vxgvlkf" path="res://GameBase/Prefabs/SceneMusicPlayer/SceneMusicPlayer.tscn" id="1_427ri"]
 [ext_resource type="PackedScene" uid="uid://dqyk4uexo83ie" path="res://GameBase/Prefabs/BasicPlayer/BasicPlayerPFB.tscn" id="1_hljda"]
 [ext_resource type="PackedScene" uid="uid://c073261cpqggn" path="res://GameBase/Prefabs/Checkpoint/CheckPointPFB.tscn" id="2_ae2a0"]
 [ext_resource type="PackedScene" uid="uid://dsq5noq2k8yjc" path="res://GameBase/Prefabs/ExitToScene/ExitToScenePFB.tscn" id="3_4wgvw"]
 
-[node name="LevelTwo" type="Node2D"]
+[node name="level_two" type="Node2D"]
+
+[node name="SceneMusicPlayer" parent="." instance=ExtResource("1_427ri")]
+mySong = 2
 
 [node name="LevelLabel" type="Label" parent="."]
 offset_right = 128.0

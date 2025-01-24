@@ -8,6 +8,9 @@ var femaleASP: AudioStreamPlayer
 var sfxPaths = ["SFX1", "SFX2", "SFX3", "SFX4", "SFX5", "SFX6", "SFX7", "SFX8", "SFX9", "SFX10", "SFX11", "SFX12", "SFX13", "SFX14", "SFX15", ]
 var sfxASP = []
 
+#Track the path to the current song playing on music
+var songPlaying: String = ""
+
 #Audio Bus Indexes
 var master_index = AudioServer.get_bus_index("Master")
 var music_index = AudioServer.get_bus_index("Music")
@@ -88,9 +91,12 @@ func PlayVoice(audioPath: String) -> void:
 
 
 func PlayMusic(audioPath: String) -> void:
-	var mySound: AudioStream = load(audioPath)
-	musicASP.stream = mySound
-	musicASP.play()
+	#Don't change song if it is the one currently playing
+	if songPlaying != audioPath:
+		songPlaying = audioPath
+		var mySound: AudioStream = load(audioPath)
+		musicASP.stream = mySound
+		musicASP.play()
 
 
 func PlayMale(audioPath: String) -> void:

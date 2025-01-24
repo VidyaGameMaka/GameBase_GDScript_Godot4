@@ -12,7 +12,7 @@ dest_files=["res://.godot/imported/KevenMcLeold_SneakySnitch.mp3-0f09dc2c97b03ba
 
 [params]
 
-loop=false
+loop=true
 loop_offset=0
 bpm=0
 beat_count=0

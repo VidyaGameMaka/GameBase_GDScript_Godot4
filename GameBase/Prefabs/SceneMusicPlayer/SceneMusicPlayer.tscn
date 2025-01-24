@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://qaj45vxgvlkf"]
+
+[ext_resource type="Script" path="res://GameBase/Prefabs/SceneMusicPlayer/SceneMusicPlayer.gd" id="1_301rx"]
+
+[node name="SceneMusicPlayer" type="Node2D"]
+script = ExtResource("1_301rx")
