@@ -1,10 +1,13 @@
-[gd_scene load_steps=2 format=3 uid="uid://wu2w05jug8in"]
+[gd_scene load_steps=4 format=3 uid="uid://wu2w05jug8in"]
 
+[ext_resource type="Script" path="res://GameBase/SceneAssets/Scripts/main/MainMenu.gd" id="1_0lsll"]
 [ext_resource type="Script" path="res://GameBase/SceneAssets/Scripts/main/MainSlotPanel.gd" id="1_7wyqt"]
+[ext_resource type="Script" path="res://GameBase/SceneAssets/Scripts/main/SoundSlider.gd" id="2_npqft"]
 
 [node name="MainMenu_CanvasLayer" type="CanvasLayer"]
+script = ExtResource("1_0lsll")
 
-[node name="Control" type="Control" parent="."]
+[node name="MainMenu_Control" type="Control" parent="."]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -12,17 +15,81 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="TitleLabel" type="Label" parent="Control"]
+[node name="TitleLabel" type="Label" parent="MainMenu_Control"]
+layout_mode = 1
+anchors_preset = 10
+anchor_right = 1.0
+offset_bottom = 69.0
+grow_horizontal = 2
+theme_override_font_sizes/font_size = 50
+text = "Main Menu"
+horizontal_alignment = 1
+
+[node name="StartGameButton" type="Button" parent="MainMenu_Control"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -23.0
+offset_top = -79.5
+offset_right = 23.0
+offset_bottom = -48.5
+grow_horizontal = 2
+grow_vertical = 2
+text = "Start"
+
+[node name="SoundButton" type="Button" parent="MainMenu_Control"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -28.5
+offset_top = -15.5
+offset_right = 28.5
+offset_bottom = 15.5
+grow_horizontal = 2
+grow_vertical = 2
+text = "Sound"
+
+[node name="QuitButton" type="Button" parent="MainMenu_Control"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -21.0
+offset_top = 48.5
+offset_right = 21.0
+offset_bottom = 79.5
+grow_horizontal = 2
+grow_vertical = 2
+text = "Quit"
+
+[node name="StartGame_Control" type="Control" parent="."]
+visible = false
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="TitleLabel" type="Label" parent="StartGame_Control"]
 layout_mode = 1
 anchors_preset = 10
 anchor_right = 1.0
 offset_bottom = 23.0
 grow_horizontal = 2
 theme_override_font_sizes/font_size = 50
-text = "Main Menu"
+text = "Start Game Menu"
 horizontal_alignment = 1
 
-[node name="Slot_Panel1" type="Panel" parent="Control" node_paths=PackedStringArray("myLabel", "myStartBtn", "myDeleteBtn")]
+[node name="Slot_Panel1" type="Panel" parent="StartGame_Control" node_paths=PackedStringArray("myLabel", "myStartBtn", "myDeleteBtn")]
 layout_mode = 1
 anchors_preset = 10
 anchor_right = 1.0
@@ -34,7 +101,7 @@ myLabel = NodePath("SlotLabel1")
 myStartBtn = NodePath("StartGameButton1")
 myDeleteBtn = NodePath("DeleteGameButton1")
 
-[node name="SlotLabel1" type="Label" parent="Control/Slot_Panel1"]
+[node name="SlotLabel1" type="Label" parent="StartGame_Control/Slot_Panel1"]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -48,7 +115,7 @@ playedfile: true?
 savedScene: level_one?
 checkpoint: 99?"
 
-[node name="StartGameButton1" type="Button" parent="Control/Slot_Panel1"]
+[node name="StartGameButton1" type="Button" parent="StartGame_Control/Slot_Panel1"]
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -63,7 +130,7 @@ grow_horizontal = 2
 grow_vertical = 2
 text = "Start"
 
-[node name="DeleteGameButton1" type="Button" parent="Control/Slot_Panel1"]
+[node name="DeleteGameButton1" type="Button" parent="StartGame_Control/Slot_Panel1"]
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -78,7 +145,7 @@ grow_horizontal = 2
 grow_vertical = 2
 text = "Delete"
 
-[node name="Slot_Panel2" type="Panel" parent="Control" node_paths=PackedStringArray("myLabel", "myStartBtn", "myDeleteBtn")]
+[node name="Slot_Panel2" type="Panel" parent="StartGame_Control" node_paths=PackedStringArray("myLabel", "myStartBtn", "myDeleteBtn")]
 layout_mode = 1
 anchors_preset = 10
 anchor_right = 1.0
@@ -91,7 +158,7 @@ myLabel = NodePath("SlotLabel2")
 myStartBtn = NodePath("StartGameButton2")
 myDeleteBtn = NodePath("DeleteGameButton2")
 
-[node name="SlotLabel2" type="Label" parent="Control/Slot_Panel2"]
+[node name="SlotLabel2" type="Label" parent="StartGame_Control/Slot_Panel2"]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -105,7 +172,7 @@ playedfile: true?
 savedScene: level_one?
 checkpoint: 99?"
 
-[node name="StartGameButton2" type="Button" parent="Control/Slot_Panel2"]
+[node name="StartGameButton2" type="Button" parent="StartGame_Control/Slot_Panel2"]
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -120,7 +187,7 @@ grow_horizontal = 2
 grow_vertical = 2
 text = "Start"
 
-[node name="DeleteGameButton2" type="Button" parent="Control/Slot_Panel2"]
+[node name="DeleteGameButton2" type="Button" parent="StartGame_Control/Slot_Panel2"]
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -135,7 +202,7 @@ grow_horizontal = 2
 grow_vertical = 2
 text = "Delete"
 
-[node name="Slot_Panel3" type="Panel" parent="Control" node_paths=PackedStringArray("myLabel", "myStartBtn", "myDeleteBtn")]
+[node name="Slot_Panel3" type="Panel" parent="StartGame_Control" node_paths=PackedStringArray("myLabel", "myStartBtn", "myDeleteBtn")]
 layout_mode = 1
 anchors_preset = 10
 anchor_right = 1.0
@@ -148,7 +215,7 @@ myLabel = NodePath("SlotLabel3")
 myStartBtn = NodePath("StartGameButton3")
 myDeleteBtn = NodePath("DeleteGameButton3")
 
-[node name="SlotLabel3" type="Label" parent="Control/Slot_Panel3"]
+[node name="SlotLabel3" type="Label" parent="StartGame_Control/Slot_Panel3"]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -162,7 +229,7 @@ playedfile: true
 savedScene: level_one
 checkpoint: 99"
 
-[node name="StartGameButton3" type="Button" parent="Control/Slot_Panel3"]
+[node name="StartGameButton3" type="Button" parent="StartGame_Control/Slot_Panel3"]
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -177,7 +244,7 @@ grow_horizontal = 2
 grow_vertical = 2
 text = "Start"
 
-[node name="DeleteGameButton3" type="Button" parent="Control/Slot_Panel3"]
+[node name="DeleteGameButton3" type="Button" parent="StartGame_Control/Slot_Panel3"]
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -191,3 +258,153 @@ offset_bottom = 34.5
 grow_horizontal = 2
 grow_vertical = 2
 text = "Delete"
+
+[node name="BackButton" type="Button" parent="StartGame_Control"]
+layout_mode = 0
+offset_right = 8.0
+offset_bottom = 8.0
+text = "Back"
+
+[node name="Sound_Control" type="Control" parent="."]
+visible = false
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="TitleLabel" type="Label" parent="Sound_Control"]
+layout_mode = 1
+anchors_preset = 10
+anchor_right = 1.0
+offset_bottom = 69.0
+grow_horizontal = 2
+theme_override_font_sizes/font_size = 50
+text = "Sound Menu"
+horizontal_alignment = 1
+
+[node name="master_HSlider" type="HSlider" parent="Sound_Control"]
+layout_mode = 0
+offset_left = 11.0
+offset_top = 102.0
+offset_right = 187.0
+offset_bottom = 118.0
+max_value = 1.0
+step = 0.01
+script = ExtResource("2_npqft")
+
+[node name="Label" type="Label" parent="Sound_Control/master_HSlider"]
+layout_mode = 0
+offset_top = -22.0
+offset_right = 109.0
+offset_bottom = 1.0
+text = "Volume: 100%"
+
+[node name="sfx_HSlider" type="HSlider" parent="Sound_Control"]
+layout_mode = 0
+offset_left = 11.0
+offset_top = 143.0
+offset_right = 187.0
+offset_bottom = 159.0
+max_value = 1.0
+step = 0.01
+script = ExtResource("2_npqft")
+myBus = 1
+
+[node name="Label" type="Label" parent="Sound_Control/sfx_HSlider"]
+layout_mode = 0
+offset_top = -22.0
+offset_right = 109.0
+offset_bottom = 1.0
+text = "Volume: 100%"
+
+[node name="music_HSlider" type="HSlider" parent="Sound_Control"]
+layout_mode = 0
+offset_left = 11.0
+offset_top = 190.0
+offset_right = 187.0
+offset_bottom = 206.0
+max_value = 1.0
+step = 0.01
+script = ExtResource("2_npqft")
+myBus = 2
+
+[node name="Label" type="Label" parent="Sound_Control/music_HSlider"]
+layout_mode = 0
+offset_top = -22.0
+offset_right = 109.0
+offset_bottom = 1.0
+text = "Volume: 100%"
+
+[node name="voice_HSlider" type="HSlider" parent="Sound_Control"]
+layout_mode = 0
+offset_left = 11.0
+offset_top = 234.0
+offset_right = 187.0
+offset_bottom = 250.0
+max_value = 1.0
+step = 0.01
+script = ExtResource("2_npqft")
+myBus = 3
+
+[node name="Label" type="Label" parent="Sound_Control/voice_HSlider"]
+layout_mode = 0
+offset_top = -22.0
+offset_right = 109.0
+offset_bottom = 1.0
+text = "Volume: 100%"
+
+[node name="male_HSlider" type="HSlider" parent="Sound_Control"]
+layout_mode = 0
+offset_left = 11.0
+offset_top = 276.0
+offset_right = 187.0
+offset_bottom = 292.0
+max_value = 1.0
+step = 0.01
+script = ExtResource("2_npqft")
+myBus = 4
+
+[node name="Label" type="Label" parent="Sound_Control/male_HSlider"]
+layout_mode = 0
+offset_top = -22.0
+offset_right = 109.0
+offset_bottom = 1.0
+text = "Volume: 100%"
+
+[node name="female_HSlider" type="HSlider" parent="Sound_Control"]
+layout_mode = 0
+offset_left = 11.0
+offset_top = 315.0
+offset_right = 187.0
+offset_bottom = 331.0
+max_value = 1.0
+step = 0.01
+script = ExtResource("2_npqft")
+myBus = 4
+
+[node name="Label" type="Label" parent="Sound_Control/female_HSlider"]
+layout_mode = 0
+offset_top = -22.0
+offset_right = 109.0
+offset_bottom = 1.0
+text = "Volume: 100%"
+
+[node name="BackButton" type="Button" parent="Sound_Control"]
+layout_mode = 0
+offset_right = 45.0
+offset_bottom = 31.0
+text = "Back"
+
+[connection signal="button_up" from="MainMenu_Control/StartGameButton" to="." method="_on_start_game_button_button_up"]
+[connection signal="button_up" from="MainMenu_Control/SoundButton" to="." method="_on_sound_button_button_up"]
+[connection signal="button_up" from="MainMenu_Control/QuitButton" to="." method="_on_quit_button_button_up"]
+[connection signal="button_up" from="StartGame_Control/BackButton" to="." method="_on_back_button_button_up"]
+[connection signal="value_changed" from="Sound_Control/master_HSlider" to="Sound_Control/master_HSlider" method="_on_value_changed"]
+[connection signal="value_changed" from="Sound_Control/sfx_HSlider" to="Sound_Control/sfx_HSlider" method="_on_value_changed"]
+[connection signal="value_changed" from="Sound_Control/music_HSlider" to="Sound_Control/music_HSlider" method="_on_value_changed"]
+[connection signal="value_changed" from="Sound_Control/voice_HSlider" to="Sound_Control/voice_HSlider" method="_on_value_changed"]
+[connection signal="value_changed" from="Sound_Control/male_HSlider" to="Sound_Control/male_HSlider" method="_on_value_changed"]
+[connection signal="value_changed" from="Sound_Control/female_HSlider" to="Sound_Control/female_HSlider" method="_on_value_changed"]
+[connection signal="button_up" from="Sound_Control/BackButton" to="." method="_on_back_button_button_up"]
