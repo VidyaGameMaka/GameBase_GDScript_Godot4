@@ -1,8 +1,11 @@
+
 # GameBase_GDScript_Godot4
 
-This project was made in **Godot 4.3**. Older versions of Godot 4 are not recommended to use this project. This project is incompatible with Godot 3 and older.
+This project was made in **Godot 4.3**. Older versions of Godot 4 are not recommended to use this project. This project is incompatible with Godot 3 and older.  
 
-GDScript version of my Save/Load/Delete system. This is a complete Godot project and is intended to be used as a starting point for a new game, however it is possible to copy it into your existing game, expect to perform some modifications to make it fit with your game's folder layout.
+I made an extra effort to include comments in the code with some extra explanations so that it is more understandable.  
+
+GDScript version of my Save/Load/Delete system. This is a complete Godot project and is intended to be used as a starting point for a new game, however it is possible to copy it into your existing game, expect to perform some modifications to make it fit with your game's folder layout.  
 
 **This project includes the following features:**
 * **Save/Load/Delete:**
