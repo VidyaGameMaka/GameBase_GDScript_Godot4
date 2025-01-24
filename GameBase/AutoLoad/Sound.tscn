@@ -1,0 +1,63 @@
+[gd_scene load_steps=2 format=3 uid="uid://cyf83b447drh4"]
+
+[ext_resource type="Script" path="res://GameBase/Scripts/Sound.gd" id="1_se1hq"]
+
+[node name="Sound" type="Node"]
+script = ExtResource("1_se1hq")
+
+[node name="Music" type="AudioStreamPlayer" parent="."]
+bus = &"Music"
+
+[node name="Voice" type="AudioStreamPlayer" parent="."]
+bus = &"Voice"
+
+[node name="Male" type="AudioStreamPlayer" parent="."]
+bus = &"Male"
+
+[node name="Female" type="AudioStreamPlayer" parent="."]
+bus = &"Female"
+
+[node name="SFX1" type="AudioStreamPlayer" parent="."]
+bus = &"SFX"
+
+[node name="SFX2" type="AudioStreamPlayer" parent="."]
+bus = &"SFX"
+
+[node name="SFX3" type="AudioStreamPlayer" parent="."]
+bus = &"SFX"
+
+[node name="SFX4" type="AudioStreamPlayer" parent="."]
+bus = &"SFX"
+
+[node name="SFX5" type="AudioStreamPlayer" parent="."]
+bus = &"SFX"
+
+[node name="SFX6" type="AudioStreamPlayer" parent="."]
+bus = &"SFX"
+
+[node name="SFX7" type="AudioStreamPlayer" parent="."]
+bus = &"SFX"
+
+[node name="SFX8" type="AudioStreamPlayer" parent="."]
+bus = &"SFX"
+
+[node name="SFX9" type="AudioStreamPlayer" parent="."]
+bus = &"SFX"
+
+[node name="SFX10" type="AudioStreamPlayer" parent="."]
+bus = &"SFX"
+
+[node name="SFX11" type="AudioStreamPlayer" parent="."]
+bus = &"SFX"
+
+[node name="SFX12" type="AudioStreamPlayer" parent="."]
+bus = &"SFX"
+
+[node name="SFX13" type="AudioStreamPlayer" parent="."]
+bus = &"SFX"
+
+[node name="SFX14" type="AudioStreamPlayer" parent="."]
+bus = &"SFX"
+
+[node name="SFX15" type="AudioStreamPlayer" parent="."]
+bus = &"SFX"
