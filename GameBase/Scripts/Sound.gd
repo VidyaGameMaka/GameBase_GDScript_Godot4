@@ -85,8 +85,18 @@ func ChangeFemaleVolume(value: float) -> void:
 	AudioServer.set_bus_volume_db(female_index, linear_to_db(GameMaster.gameData.femaleVolume))
 
 
-##Play Sound Functions
-# Each bus has its own function to call to play a sound
+# Reset All Sound Vars to defaults
+func ResetAllSoundVolumes() -> void:
+	GameMaster.gameData.masterVolume = GameMaster.gameData.default_masterMaxVolume
+	GameMaster.gameData.sfxVolume = GameMaster.gameData.default_soundfxMaxVolume 
+	GameMaster.gameData.musicVolume = GameMaster.gameData.default_musicMaxVolume
+	GameMaster.gameData.voiceVolume = GameMaster.gameData.default_voiceMaxVolume
+	GameMaster.gameData.maleVolume = GameMaster.gameData.default_maleMaxVolume
+	GameMaster.gameData.femaleVolume = GameMaster.gameData.default_femaleMaxVolume
+	_SetBusVolumes()
+
+
+##Play Sound Functions - Each bus has its own function to play a sound
 
 #Play a sound on the SFX bus. As configured, you can play up to 15 sounds simultaneously
 func PlaySFX(audioPath: String) -> void:

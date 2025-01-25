@@ -9,6 +9,7 @@ const SPEED = 300.0
 func _ready() -> void:
 	_warp_to_checkpoint()
 
+
 #Move the player to the checkpoint that is specified in: GameMaster.playerData.checkpoint
 func _warp_to_checkpoint() -> void:
 	var checkpoints = get_tree().get_nodes_in_group("checkpoint")

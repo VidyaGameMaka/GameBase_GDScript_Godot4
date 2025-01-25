@@ -1,10 +1,11 @@
-[gd_scene load_steps=6 format=3 uid="uid://wu2w05jug8in"]
+[gd_scene load_steps=7 format=3 uid="uid://wu2w05jug8in"]
 
 [ext_resource type="Script" path="res://GameBase/SceneAssets/Scripts/main/MainMenu.gd" id="1_0lsll"]
 [ext_resource type="Script" path="res://GameBase/SceneAssets/Scripts/main/MainSlotPanel.gd" id="1_7wyqt"]
 [ext_resource type="Script" path="res://GameBase/SceneAssets/Scripts/main/SoundSlider.gd" id="2_npqft"]
 [ext_resource type="Script" path="res://GameBase/SceneAssets/Scripts/main/VideoMenu.gd" id="4_v85tt"]
 [ext_resource type="PackedScene" uid="uid://qaj45vxgvlkf" path="res://GameBase/Prefabs/SceneMusicPlayer/SceneMusicPlayer.tscn" id="5_0uedv"]
+[ext_resource type="Script" path="res://GameBase/SceneAssets/Scripts/main/ResetSoundButton.gd" id="5_p064k"]
 
 [node name="MainMenu_CanvasLayer" type="CanvasLayer"]
 script = ExtResource("1_0lsll")
@@ -258,7 +259,6 @@ offset_bottom = 8.0
 text = "Back"
 
 [node name="Sound_Control" type="Control" parent="."]
-visible = false
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -383,6 +383,15 @@ offset_right = 109.0
 offset_bottom = 1.0
 text = "Volume: 100%"
 
+[node name="resetSoundButton" type="Button" parent="Sound_Control"]
+layout_mode = 0
+offset_left = 210.0
+offset_top = 322.0
+offset_right = 261.0
+offset_bottom = 353.0
+text = "Reset"
+script = ExtResource("5_p064k")
+
 [node name="BackButton" type="Button" parent="Sound_Control"]
 layout_mode = 0
 offset_right = 45.0
@@ -455,6 +464,7 @@ text = "Back"
 [connection signal="value_changed" from="Sound_Control/voice_HSlider" to="Sound_Control/voice_HSlider" method="_on_value_changed"]
 [connection signal="value_changed" from="Sound_Control/male_HSlider" to="Sound_Control/male_HSlider" method="_on_value_changed"]
 [connection signal="value_changed" from="Sound_Control/female_HSlider" to="Sound_Control/female_HSlider" method="_on_value_changed"]
+[connection signal="button_up" from="Sound_Control/resetSoundButton" to="Sound_Control/resetSoundButton" method="_on_button_up"]
 [connection signal="button_up" from="Sound_Control/BackButton" to="." method="_on_back_button_button_up"]
 [connection signal="button_up" from="VideoMenu_Control/windowModeButton" to="VideoMenu_Control" method="_on_window_mode_button_button_up"]
 [connection signal="item_selected" from="VideoMenu_Control/OptionButton" to="VideoMenu_Control" method="_on_option_button_item_selected"]

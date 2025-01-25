@@ -11,6 +11,7 @@ func _ready() -> void:
 		$Sprite2D.visible = false
 		$Label.visible = false
 
+
 func _process(_delta: float) -> void:
 	$Label.text = my_scene_path + "\n" + str(my_checkpoint)
 
@@ -19,7 +20,7 @@ func _on_body_entered(body: Node2D) -> void:
 	if (body.is_in_group("player")):
 		print("player body entered exit: " + str(my_checkpoint) + " " + my_scene_path)
 		call_deferred("_deferred_scene_change")
-	
+
 
 func _deferred_scene_change() -> void:
 	GameMaster.playerData.checkpoint = my_checkpoint

@@ -11,11 +11,14 @@ class_name GameData
 
  #If true, run the game full screen
 @export var isFullScreen: bool = false
+#If the game is not fullscreen, but maximized is saved
+#Then show the game as maximized
 @export var isMaximized: bool = false
 
 
-#Windowed Resolution Presets, Only Come into Effect when ScreenMode is Windowed.
-#Godot does not change the resolution of the monitor when it goes FullScreen, it uses the resolution as-is.
+#Windowed Presets, Only Come into Effect when ScreenMode is Windowed.
+#Godot does not change the resolution of the monitor when it goes FullScreen,
+#it uses the screen resolution as-is.
 @export var windowResolutions = {
 		0: Vector2i(640, 360),
 		1: Vector2i(960, 540),
