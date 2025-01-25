@@ -109,15 +109,35 @@ func ReloadPlayerDataMainMenu():
 func ApplyVideoSettings() -> void:
 	if gameData.isFullScreen == true:
 		DisplayServer.window_set_mode(DisplayServer.WINDOW_MODE_FULLSCREEN)
+		return
+	
+	if gameData.isMaximized == true:
+		DisplayServer.window_set_mode(DisplayServer.WINDOW_MODE_MAXIMIZED)
+		return
+	
+	#Not fullscreen or maximized, use window settings
+	DisplayServer.window_set_mode(DisplayServer.WINDOW_MODE_WINDOWED)
+	DisplayServer.window_set_size(gameData.windowResolutions[gameData.resolutionIndex])
+	var screen_size = DisplayServer.screen_get_size()
+	var window_size = DisplayServer.window_get_size() 
+	var centered = Vector2(screen_size.x / 2 - window_size.x / 2, screen_size.y / 2 - window_size.y / 2)
+	DisplayServer.window_set_position(centered)
+		
+		
+
+func ReadWindowSettings() -> void:
+	if DisplayServer.window_get_mode() == DisplayServer.WINDOW_MODE_FULLSCREEN:
+		gameData.isFullScreen = true
+		gameData.isMaximized = false
+		return
+	
+	if DisplayServer.window_get_mode() == DisplayServer.WINDOW_MODE_MAXIMIZED:
+		gameData.isFullScreen = false
+		gameData.isMaximized = true
 	else:
-		DisplayServer.window_set_mode(DisplayServer.WINDOW_MODE_WINDOWED)
-		DisplayServer.window_set_size(gameData.windowResolutions[gameData.resolutionIndex])
-		var screen_size = DisplayServer.screen_get_size()
-		var window_size = DisplayServer.window_get_size() 
-		var centered = Vector2(screen_size.x / 2 - window_size.x / 2, screen_size.y / 2 - window_size.y / 2)
-		DisplayServer.window_set_position(centered)
-		
-		
+		gameData.isFullScreen = false
+		gameData.isMaximized = false
+
 
 ## PlayerData functions
 
@@ -172,6 +192,8 @@ func _LoadGameData() -> GameData:
 
 #GameData Save
 func _SaveGameData() -> void:
+	# Read Current Window Settings Before Saving GameData
+	ReadWindowSettings()
 	var fullPath = _save_file_path +_gameData_save_file_name + _save_file_suffix
 	ResourceSaver.save(gameData, fullPath)
 
@@ -194,3 +216,14 @@ func _LoadAchievementData() -> AchievementData:
 func _SaveAchievementData() -> void:
 	var fullPath = _save_file_path + _achievementData_save_file_name + _save_file_suffix
 	ResourceSaver.save(achievementData, fullPath)
+
+
+#Handle Quitting if issued by the Operating System's close button
+func _notification(what) -> void:
+	if what == NOTIFICATION_WM_CLOSE_REQUEST:
+		QuitGame()
+
+
+func QuitGame() -> void:
+	print("(GameMaster): Quit Notification Sent, Saving and Quitting")
+	FullSave()

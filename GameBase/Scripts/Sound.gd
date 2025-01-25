@@ -6,10 +6,10 @@ var voiceASP: AudioStreamPlayer
 var maleASP: AudioStreamPlayer
 var femaleASP: AudioStreamPlayer
 var sfxPaths = ["SFX1", "SFX2", "SFX3", "SFX4", "SFX5", "SFX6", "SFX7", "SFX8", "SFX9", "SFX10", "SFX11", "SFX12", "SFX13", "SFX14", "SFX15", ]
-var sfxASP = []
+var sfxASP: = []
 
 #Track the path to the current song playing on music
-var songPlaying: String = ""
+var songPlayingPath: String = ""
 
 #Audio Bus Indexes
 var master_index = AudioServer.get_bus_index("Master")
@@ -108,8 +108,8 @@ func PlayVoice(audioPath: String) -> void:
 #Play a sound on the Muisc bus. There is only 1 AudioStreamPlayer so only 1 song can play at a time.
 func PlayMusic(audioPath: String) -> void:
 	#Don't change song if it is the one currently playing
-	if songPlaying != audioPath:
-		songPlaying = audioPath
+	if songPlayingPath != audioPath:
+		songPlayingPath = audioPath
 		var mySound: AudioStream = load(audioPath)
 		musicASP.stream = mySound
 		musicASP.play()
